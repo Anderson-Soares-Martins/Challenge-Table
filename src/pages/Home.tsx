@@ -3,16 +3,17 @@ import {
   Container,
   Table,
   TableHead,
-  RowTitle,
   TableBody,
   Row,
-  Title,
-  Text,
   Options,
   OptionButton,
   ContainerTag,
   AccessProfileTag,
   AccessProfileTagText,
+  Header,
+  Cell,
+  Content,
+  CardArea,
 } from './styles';
 import { EditOrDelete } from '../components/EditOrDelete';
 import { TbDotsVertical } from 'react-icons/tb';
@@ -29,303 +30,89 @@ export function Home() {
   const [cardFilterOpen, setCardFilterOpen] = useState(false);
 
   const [defaultLinesPerPage, setDefaultLinesPerPage] = useState(true);
-  const [fiftyLinesPerPage, setFiftyLinesPerPage] = useState(false);
-  const [userNameSelected, setUserNameSelected] = useState(true);
-  const [emailSelected, setEmailSelected] = useState(true);
-  const [companyNameSelected, setCompanyNameSelected] = useState(true);
-  const [accessProfileSelected, setAccessProfileSelected] = useState(true);
-  const columns = ['USUÁRIO', 'EMAIL', 'CLIENTE', 'PERFIL DE ACESSO'];
-  const data: DataProps[] = [
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-    {
-      userName: 'João',
-      email: 'nomeempresa@gmail.com',
-      companyName: 'Nome Empresa',
-      accessProfile: 'Administrador',
-    },
-  ];
+
+  const [columnsSelected, setColumnsSelected] = useState({
+    user: true,
+    email: true,
+    client: true,
+    accessProfile: true,
+  });
+
+  const data: DataProps[] = new Array(60).fill({
+    userName: 'ESMEE ALFORD',
+    email: 'NOMEDEEMAIL@EMPRESA.COM.BR',
+    companyName: 'NOME DA EMPRESA',
+    accessProfile: 'NOME DO PERFIL',
+  });
 
   return (
-    <Container>
-      <Table>
-        <TableHead>
-          <RowTitle>
-            {userNameSelected && <Title style={{ flex: 1 }}>{columns[0]}</Title>}
-            {emailSelected && <Title style={{ flex: 2 }}>{columns[1]}</Title>}
-            {companyNameSelected && <Title style={{ flex: 1 }}>{columns[2]}</Title>}
-            {accessProfileSelected && <Title style={{ flex: 1 }}>{columns[3]}</Title>}
-            <Options>
-              <OptionButton
-                onClick={() => {
-                  setCardFilterOpen(!cardFilterOpen);
-                }}
-              >
-                <TbDotsVertical size={25} />
-              </OptionButton>
-            </Options>
-          </RowTitle>
-        </TableHead>
-        <TableBody>
-          {data.map(({ userName: name, email, companyName, accessProfile }, index) => (
-            <Row key={index}>
-              {userNameSelected && <Text style={{ flex: 1 }}>{name}</Text>}
-              {emailSelected && <Text style={{ flex: 2 }}>{email}</Text>}
-              {companyNameSelected && <Text style={{ flex: 1 }}>{companyName}</Text>}
-              {accessProfileSelected && (
-                <ContainerTag>
-                  <AccessProfileTag>
-                    <AccessProfileTagText style={{ flex: 1 }}>
-                      {accessProfile}
-                    </AccessProfileTagText>
-                  </AccessProfileTag>
-                </ContainerTag>
-              )}
-              <EditOrDelete />
-            </Row>
-          ))}
-          {cardFilterOpen && (
-            <CardFilter
-              activeFilters={{
-                defaultLinesPerPage,
-                fiftyLinesPerPage,
-                userNameSelected,
-                emailSelected,
-                companyNameSelected,
-                accessProfileSelected,
-              }}
-              setActiveFilters={{
-                setDefaultLinesPerPage,
-                setFiftyLinesPerPage,
-                setUserNameSelected,
-                setEmailSelected,
-                setCompanyNameSelected,
-                setAccessProfileSelected,
-              }}
-            />
-          )}
-        </TableBody>
-      </Table>
-    </Container>
+    <>
+      <Container
+        onClick={() => {
+          cardFilterOpen && setCardFilterOpen(false);
+        }}
+      >
+        <Content>
+          <Table>
+            <TableHead>
+              <Row>
+                {columnsSelected.user && <Header>USUÁRIO</Header>}
+                {columnsSelected.email && <Header>EMAIL</Header>}
+                {columnsSelected.client && <Header>CLIENTE</Header>}
+                {columnsSelected.accessProfile && <Header>PERFIL DE ACESSO</Header>}
+                <Header>
+                  <Options>
+                    <OptionButton
+                      onClick={() => {
+                        setCardFilterOpen(!cardFilterOpen);
+                      }}
+                    >
+                      <TbDotsVertical size={25} />
+                    </OptionButton>
+                  </Options>
+                </Header>
+              </Row>
+            </TableHead>
+            <TableBody>
+              {data
+                .slice(0, defaultLinesPerPage ? 20 : 50)
+                .map(({ userName: name, email, companyName, accessProfile }, index) => {
+                  return (
+                    <Row key={index}>
+                      {columnsSelected.user && (
+                        <Cell>
+                          {name} {index + 1}
+                        </Cell>
+                      )}
+                      {columnsSelected.email && <Cell>{email}</Cell>}
+                      {columnsSelected.client && <Cell>{companyName}</Cell>}
+                      {columnsSelected.accessProfile && (
+                        <Cell>
+                          <ContainerTag>
+                            <AccessProfileTag>
+                              <AccessProfileTagText>{accessProfile}</AccessProfileTagText>
+                            </AccessProfileTag>
+                          </ContainerTag>
+                        </Cell>
+                      )}
+                      <Cell>
+                        <EditOrDelete />
+                      </Cell>
+                    </Row>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </Content>
+      </Container>
+      {cardFilterOpen && (
+        <CardFilter
+          activeFilters={columnsSelected}
+          defaultLinesPerPage={defaultLinesPerPage}
+          setColumnsSelected={setColumnsSelected}
+          setDefaultLinesPerPage={setDefaultLinesPerPage}
+        />
+      )}
+    </>
   );
 }

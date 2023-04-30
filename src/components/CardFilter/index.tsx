@@ -1,62 +1,85 @@
 import { Dispatch, SetStateAction } from 'react';
-import { CheckboxSelect } from './components/Checkbox';
 import { ContainerCard, FilterColumns, FilterLinesPerPage, Text } from './styles';
+import { Checkbox } from './components/Checkbox';
 interface DataProps {
+  defaultLinesPerPage: boolean;
   activeFilters: {
-    defaultLinesPerPage: boolean;
-    fiftyLinesPerPage: boolean;
-    userNameSelected: boolean;
-    emailSelected: boolean;
-    companyNameSelected: boolean;
-    accessProfileSelected: boolean;
+    user: boolean;
+    email: boolean;
+    client: boolean;
+    accessProfile: boolean;
   };
-  setActiveFilters: {
-    setDefaultLinesPerPage: Dispatch<SetStateAction<boolean>>;
-    setFiftyLinesPerPage: Dispatch<SetStateAction<boolean>>;
-    setUserNameSelected: Dispatch<SetStateAction<boolean>>;
-    setEmailSelected: Dispatch<SetStateAction<boolean>>;
-    setCompanyNameSelected: Dispatch<SetStateAction<boolean>>;
-    setAccessProfileSelected: Dispatch<SetStateAction<boolean>>;
-  };
+  setColumnsSelected: Dispatch<
+    SetStateAction<{ user: boolean; email: boolean; client: boolean; accessProfile: boolean }>
+  >;
+  setDefaultLinesPerPage: Dispatch<SetStateAction<boolean>>;
 }
 
-export function CardFilter({ activeFilters, setActiveFilters }: DataProps) {
+export function CardFilter({
+  activeFilters,
+  defaultLinesPerPage,
+  setColumnsSelected,
+  setDefaultLinesPerPage,
+}: DataProps) {
   return (
     <ContainerCard>
       <FilterLinesPerPage>
         <Text>Linhas por páginas</Text>
-        <CheckboxSelect
+        <Checkbox
+          id='default'
+          name='padrão'
           label='Padrão'
-          active={activeFilters.defaultLinesPerPage}
-          setActive={setActiveFilters.setDefaultLinesPerPage}
+          checked={defaultLinesPerPage}
+          setActive={() => setDefaultLinesPerPage(!defaultLinesPerPage)}
         />
-        <CheckboxSelect
+        <Checkbox
+          id='fifty'
+          name='50 linhas'
           label='50 linhas'
-          active={activeFilters.fiftyLinesPerPage}
-          setActive={setActiveFilters.setFiftyLinesPerPage}
+          checked={!defaultLinesPerPage}
+          setActive={() => setDefaultLinesPerPage(!defaultLinesPerPage)}
         />
       </FilterLinesPerPage>
       <FilterColumns>
         <Text>Colunas</Text>
-        <CheckboxSelect
+        <Checkbox
+          id='user'
+          name='usuário'
           label='Usuário'
-          active={activeFilters.userNameSelected}
-          setActive={setActiveFilters.setUserNameSelected}
+          checked={activeFilters.user}
+          setActive={() => {
+            setColumnsSelected((prevState) => ({ ...prevState, user: !prevState.user }));
+          }}
         />
-        <CheckboxSelect
-          label='E-mail'
-          active={activeFilters.emailSelected}
-          setActive={setActiveFilters.setEmailSelected}
+        <Checkbox
+          id='email'
+          name='email'
+          label='Email'
+          checked={activeFilters.email}
+          setActive={() => {
+            setColumnsSelected((prevState) => ({ ...prevState, email: !prevState.email }));
+          }}
         />
-        <CheckboxSelect
+        <Checkbox
+          id='client'
+          name='cliente'
           label='Cliente'
-          active={activeFilters.companyNameSelected}
-          setActive={setActiveFilters.setCompanyNameSelected}
+          checked={activeFilters.client}
+          setActive={() => {
+            setColumnsSelected((prevState) => ({ ...prevState, client: !prevState.client }));
+          }}
         />
-        <CheckboxSelect
+        <Checkbox
+          id='accessProfile'
+          name='perfil de acesso'
           label='Perfil de acesso'
-          active={activeFilters.accessProfileSelected}
-          setActive={setActiveFilters.setAccessProfileSelected}
+          checked={activeFilters.accessProfile}
+          setActive={() => {
+            setColumnsSelected((prevState) => ({
+              ...prevState,
+              accessProfile: !prevState.accessProfile,
+            }));
+          }}
         />
       </FilterColumns>
     </ContainerCard>

@@ -1,70 +1,54 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  flex: 1;
   display: flex;
   width: 100%;
-  height: 100%;
+  max-height: 100vh;
 `;
-export const Table = styled.div`
-  flex: 1;
-  display: flex;
-  margin: 40px;
-  flex-direction: column;
 
-  border: none solid 1px;
-  border-radius: 10px;
-  overflow: auto;
-  box-shadow: 0 0 10px ${({ theme }) => theme.colors.shadow};
-
-  background-color: ${({ theme }) => theme.colors.primary};
-  &::-webkit-scrollbar {
-    width: 6px; /* width of the entire scrollbar */
-  }
-  &::-webkit-scrollbar-track {
-    margin: 25px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.colors.tertiary}; /* color of the scroll thumb */
-    border-radius: 20px; /* roundness of the scroll thumb */
-    border: 2px solid ${({ theme }) => theme.colors.background}; /* creates padding around scroll thumb */
-  }
-`;
-export const TableHead = styled.div`
+export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-`;
-export const TableBody = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Title = styled.p`
-  font-weight: bold;
-`;
-export const Text = styled.p`
-  overflow: hidden;
-`;
-
-const FlexContainerBase = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 10px;
-  & > ${Title}:nth-child(2) {
-    flex: 2;
-  }
-  & > ${Text}:nth-child(2) {
-    flex: 2;
-  }
+  margin: 40px;
+  overflow: auto;
+  background-color: ${({ theme }) => theme.colors.primary};
+  box-shadow: 0 0 10px ${({ theme }) => theme.colors.shadow};
+  border-radius: 10px;
 `;
 
-export const RowTitle = styled(FlexContainerBase)``;
+export const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  background-color: ${({ theme }) => theme.colors.primary};
+`;
 
-export const Row = styled(FlexContainerBase)`
+export const TableHead = styled.thead`
+  position: sticky;
+  top: 0;
+
+  z-index: 1;
+`;
+
+export const TableBody = styled.tbody`
+  overflow-y: scroll;
+`;
+
+export const Header = styled.th`
+  font-weight: bold;
+  background-color: ${({ theme }) => theme.colors.primary};
+  text-align: start;
+  padding: 0 10px 0 16px;
+`;
+export const Cell = styled.td`
+  text-align: start;
+  padding: 0 10px 0 16px;
+`;
+
+export const Row = styled.tr`
   &:nth-child(odd) {
     background-color: ${({ theme }) => theme.colors.secondary};
   }
@@ -106,4 +90,13 @@ export const AccessProfileTagText = styled.p`
   padding: 5px 10px;
   margin: 0;
   font-size: 15px;
+  font-weight: 600;
+`;
+
+export const CardArea = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;

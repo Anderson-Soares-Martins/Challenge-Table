@@ -1,29 +1,26 @@
-import { Container, Text, Checkbox } from './styles';
-import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
+import { Container, Input, Label } from './styles';
 
 interface CheckboxProps {
+  id: string;
+  name: string;
   label: string;
-  active: boolean;
-  setActive: (active: boolean) => void;
+  setActive?: () => void;
+  checked: boolean;
 }
 
-export function CheckboxSelect({ label, active, setActive }: CheckboxProps) {
-  function handleCheckboxChange() {
-    setActive(!active);
-  }
-
+export function Checkbox({ id, name, label, setActive, checked }: CheckboxProps) {
   return (
     <Container>
-      {active ? (
-        <Checkbox>
-          <MdCheckBox size={22} onClick={handleCheckboxChange} />
-        </Checkbox>
-      ) : (
-        <Checkbox>
-          <MdCheckBoxOutlineBlank size={22} onClick={handleCheckboxChange} />
-        </Checkbox>
-      )}
-      <Text>{label}</Text>
+      <Input
+        type='checkbox'
+        name={name}
+        id={id}
+        checked={checked}
+        onChange={() => {
+          setActive && setActive();
+        }}
+      />
+      <Label htmlFor={id}>{label}</Label>
     </Container>
   );
 }

@@ -29,11 +29,12 @@ export const DeleteButton = styled.button`
   margin: 5px;
   border: 0;
   color: ${({ theme }) => theme.colors.delete};
-  transition: background 0.2s;
+  transition: background 0.5s;
+
+  border-radius: 50%;
 
   &:hover {
     background: ${({ theme }) => theme.colors.tertiaryLight};
-    border-radius: 50%;
   }
 
   cursor: pointer;
