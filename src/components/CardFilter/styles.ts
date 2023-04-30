@@ -4,7 +4,7 @@ export const ContainerCard = styled.div`
   position: absolute;
   right: 40px;
   top: 70px;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 15px;
 
   display: flex;
   flex: 1;
@@ -37,4 +37,11 @@ export const FilterColumns = styled.div`
   flex-direction: column;
   flex: 1;
   align-items: flex-start;
+`;
+
+export const Separator = styled.div`
+  width: 100%;
+  height: 2px;
+  margin: 10px 0;
+  background-color: ${({ theme }) => theme.colors.tertiaryLight};
 `;

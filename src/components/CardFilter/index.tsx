@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { ContainerCard, FilterColumns, FilterLinesPerPage, Text } from './styles';
+import { ContainerCard, FilterColumns, FilterLinesPerPage, Separator, Text } from './styles';
 import { Checkbox } from './components/Checkbox';
 interface DataProps {
   defaultLinesPerPage: boolean;
@@ -40,6 +40,7 @@ export function CardFilter({
           setActive={() => setDefaultLinesPerPage(!defaultLinesPerPage)}
         />
       </FilterLinesPerPage>
+      <Separator />
       <FilterColumns>
         <Text>Colunas</Text>
         <Checkbox

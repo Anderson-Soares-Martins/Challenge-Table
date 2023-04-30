@@ -81,7 +81,7 @@ export function Home() {
                     <Row key={index}>
                       {columnsSelected.user && (
                         <Cell>
-                          {name} {index + 1}
+                          {name} {index + 21}
                         </Cell>
                       )}
                       {columnsSelected.email && <Cell>{email}</Cell>}
